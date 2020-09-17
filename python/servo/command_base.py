@@ -932,9 +932,8 @@ install them, let us know by filing a bug!")
         args += ["--features", " ".join(features)]
 
         if target and 'uwp' in target:
-            return call(["xargo", command] + args + cargo_args, env=env, verbose=verbose)
-        else:
-            return self.call_rustup_run(["cargo", command] + args + cargo_args, env=env, verbose=verbose)
+            cargo_args += ["-Z", "build-std"]
+        return self.call_rustup_run(["cargo", command] + args + cargo_args, env=env, verbose=verbose)
 
     def android_support_dir(self):
         return path.join(self.context.topdir, "support", "android")
