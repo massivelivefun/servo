@@ -608,7 +608,6 @@ install them, let us know by filing a bug!")
             extra_path += [path.join(self.msvc_package_dir("llvm"), "bin")]
             extra_path += [path.join(self.msvc_package_dir("ninja"), "bin")]
             extra_path += [self.msvc_package_dir("nuget")]
-            extra_path += [path.join(self.msvc_package_dir("xargo"))]
 
             arch = (target or host_triple()).split('-')[0]
             vcpkg_arch = {
